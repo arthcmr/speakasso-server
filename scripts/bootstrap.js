@@ -9,7 +9,7 @@ var nopt = require("nopt"),
     options = nopt(knownOpts, shortHands, process.argv);
 
 //defaults
-options.port = +options.port || 80;
+options.port = +options.port || 3000;
 
 //bootstrap application
 module.exports = function(app) {
