@@ -1,0 +1,13 @@
+{
+  "name": "vizabi-server",
+  "description": "Vizabi server simple app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "q": "~1.0.1",
+    "underscore": "~1.6.0",
+    "json-mask": "~0.3.0",
+    "nopt": "~3.0.1"
+  }
+}
