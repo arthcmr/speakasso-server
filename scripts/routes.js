@@ -73,7 +73,7 @@ module.exports = function(app) {
             }));
         } else {
 
-            //insert to DB
+            //find specific one
             db.collection('entries').find({
                 email: email
             }).toArray(function(e, results) {
@@ -120,6 +120,30 @@ module.exports = function(app) {
                 }
             });
         }
+    });
+
+    app.get('/results', function(req, res) {
+
+        query = req.query['q'] || "";
+
+        setHeaders(res, 'GET');
+
+        //find all responses
+        db.collection('entries').find({}).toArray(function(e, results) {
+            if (e) {
+                res.end(JSON.stringify({
+                    success: false,
+                    msg: "Could not connect to database",
+                    error: e
+                }));
+            } else {
+
+                dataHelper.processResults(query, results, function(responseData) {
+                    //write json header and send response in json format
+                    res.end(JSON.stringify(responseData));
+                });
+            }
+        });
     });
 };
 

@@ -77,7 +77,6 @@ describe('Perception API server', function() {
                 email: 'test@test.com'
             })
             .end(function(e, res) {
-                console.log(res.body);
                 expect(e).to.eql(null);
                 expect(typeof res.body).to.eql('object');
                 expect(typeof res.body.success).to.eql('undefined');
@@ -95,6 +94,30 @@ describe('Perception API server', function() {
                 expect(e).to.eql(null);
                 expect(typeof res.body).to.eql('object');
                 expect(res.body.success).to.eql(true);
+                done();
+            });
+    });
+
+    it('gets all results', function(done) {
+        superagent.get('http://localhost:3000/results')
+            .end(function(e, res) {
+                expect(e).to.eql(null);
+                expect(typeof res.body).to.eql('object');
+                expect(typeof res.body.responses).to.eql('object');
+                done();
+            });
+    });
+
+    it('gets results filtered with the analysis only', function(done) {
+        superagent.get('http://localhost:3000/results')
+            .query({
+                q: 'analysis'
+            })
+            .end(function(e, res) {
+                expect(e).to.eql(null);
+                expect(typeof res.body).to.eql('object');
+                expect(typeof res.body.responses).to.eql('undefined');
+                expect(typeof res.body.analysis).to.eql('object');
                 done();
             });
     });

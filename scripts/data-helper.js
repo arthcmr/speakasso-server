@@ -16,10 +16,24 @@ loadData().done(function() {
 });
 
 module.exports = {
+
+    //process content query
     processQuery: function(query, lang, doneCallback) {
         //mask data with partial response query
         var response = mask(data, query);
         response = buildExperiment(response, lang);
+        doneCallback(response);
+    },
+
+    //process results query
+    processResults: function(query, results, doneCallback) {
+        var response = {
+            responses: results,
+            analysis: {}
+        };
+
+        //mask data with partial response query
+        response = mask(response, query);
         doneCallback(response);
     }
 }
