@@ -85,25 +85,13 @@ describe('Perception API server', function() {
             });
     });
 
-    it('removes entries from a specific user', function(done) {
-        superagent.del('http://localhost:3000/remove')
-            .send({
-                email: 'test@test.com'
-            })
-            .end(function(e, res) {
-                expect(e).to.eql(null);
-                expect(typeof res.body).to.eql('object');
-                expect(res.body.success).to.eql(true);
-                done();
-            });
-    });
-
     it('gets all results', function(done) {
         superagent.get('http://localhost:3000/results')
             .end(function(e, res) {
                 expect(e).to.eql(null);
                 expect(typeof res.body).to.eql('object');
                 expect(typeof res.body.responses).to.eql('object');
+                expect(typeof res.body.analysis).to.eql('object');
                 done();
             });
     });
@@ -118,6 +106,34 @@ describe('Perception API server', function() {
                 expect(typeof res.body).to.eql('object');
                 expect(typeof res.body.responses).to.eql('undefined');
                 expect(typeof res.body.analysis).to.eql('object');
+                done();
+            });
+    });
+
+    it('gets user speficic results', function(done) {
+        superagent.get('http://localhost:3000/results')
+            .query({
+                email: 'test@test.com'
+            })
+            .end(function(e, res) {
+                expect(e).to.eql(null);
+                expect(typeof res.body).to.eql('object');
+                expect(typeof res.body.responses).to.eql('object');
+                expect(typeof res.body.analysis).to.eql('object');
+                done();
+            });
+    });
+
+
+    it('removes entries from a specific user', function(done) {
+        superagent.del('http://localhost:3000/remove')
+            .send({
+                email: 'test@test.com'
+            })
+            .end(function(e, res) {
+                expect(e).to.eql(null);
+                expect(typeof res.body).to.eql('object');
+                expect(res.body.success).to.eql(true);
                 done();
             });
     });

@@ -37,24 +37,42 @@ module.exports = function(app) {
             }));
         } else {
 
-            //insert to DB
-            db.collection('entries').insert({
-                email: email,
-                language: language,
-                responses: responses,
-            }, function(e, results) {
+            db.collection('entries').find({
+                email: email
+            }).toArray(function(e, results) {
                 if (e) {
                     res.end(JSON.stringify({
                         success: false,
-                        msg: "Could not add to database",
+                        msg: "Could not connect to database",
                         error: e
                     }));
-                } else {
+                } else if (results.length > 0) {
                     res.end(JSON.stringify({
-                        success: true,
-                        msg: "Entry stored successfully",
-                        results: results
+                        success: false,
+                        msg: "E-mail is already in the database",
+                        exists: true,
                     }));
+                } else {
+                    //insert to DB
+                    db.collection('entries').insert({
+                        email: email,
+                        language: language,
+                        responses: responses,
+                    }, function(e, results) {
+                        if (e) {
+                            res.end(JSON.stringify({
+                                success: false,
+                                msg: "Could not add to database",
+                                error: e
+                            }));
+                        } else {
+                            res.end(JSON.stringify({
+                                success: true,
+                                msg: "Entry stored successfully",
+                                results: results
+                            }));
+                        }
+                    });
                 }
             });
         }
@@ -125,11 +143,16 @@ module.exports = function(app) {
     app.get('/results', function(req, res) {
 
         query = req.query['q'] || "";
+        email = req.query['email'];
 
         setHeaders(res, 'GET');
 
+        var user = (email) ? {
+            email: email
+        } : {};
+
         //find all responses
-        db.collection('entries').find({}).toArray(function(e, results) {
+        db.collection('entries').find(user).toArray(function(e, results) {
             if (e) {
                 res.end(JSON.stringify({
                     success: false,
@@ -145,6 +168,7 @@ module.exports = function(app) {
             }
         });
     });
+
 };
 
 function setHeaders(res, allowed, code) {
