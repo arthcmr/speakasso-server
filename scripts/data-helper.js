@@ -127,6 +127,7 @@ function addPreExperimentSets(data_array) {
             var color = (c) ? true : false;
 
             data_array.experiment.push({
+                id: obj.id,
                 left: obj.id,
                 right: obj.pair,
                 correct: 'l',

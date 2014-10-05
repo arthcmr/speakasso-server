@@ -1,8 +1,11 @@
-var colog = require('colog');
+var colog = require('colog'),
+    bodyParser = require('body-parser');
 
 colog.headerInfo("Starting App...");
 var express = require("express"),
 	app = express();
+
+app.use(bodyParser.json());
 
 colog.info(" * Bootstrapping data");
 require('./scripts/bootstrap')(app);
