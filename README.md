@@ -44,11 +44,9 @@ This will return the necessary data in swedish. The default language is english,
 Stores a specific result in the DB. You must send the following data:
 ```json
 {
-	email: 'test@example.com',
-	language: 'english',
-	responses: [
-		...
-	]
+	"email": "test@example.com",
+	"language": "english",
+	"responses": []
 }
 ```
 
