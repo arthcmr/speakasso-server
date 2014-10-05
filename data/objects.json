@@ -1,0 +1,8 @@
+{
+	"objects": [
+		{ "id": "radish", "type": "target", "hcd": true, "pair": "onion" },
+		{ "id": "onion", "type": "foil", "hcd": true, "pair": "radish" },
+		{ "id": "chair", "type": "target", "hcd": false, "pair": "sofa" },
+		{ "id": "sofa", "type": "foil", "hcd": false, "pair": "chair" }
+	]
+}
