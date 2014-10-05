@@ -21,6 +21,17 @@ By default, it will run in port 3000. If you want to run in a different port, us
 node app.js -p 3001 
 ```
 
+You also need to have MongoDB running.
+```
+mongod
+```
+
+###Testing
+Run tests using the following commands in the terminal:
+```
+mocha app.test.js
+```
+
 ###How to query it
 By default, it runs in ```http://localhost:3000```. The server is really simplistic and accepts only a few requests:
 
@@ -29,19 +40,17 @@ By default, it runs in ```http://localhost:3000```. The server is really simplis
 
 This will return the necessary data in swedish. The default language is english, in case you don't specify it.
 
-#####POST http://localhost:3000/insert?result={ ... }
+#####POST http://localhost:3000/insert?entry={ ... }
 Stores a specific result in the DB.
-
-*This still doesn't work*
 
 #####GET http://localhost:3000/results
 Get all the results and analysis
 
-*This still doesn't work*
+*Not implemented yet*
 
 #####GET http://localhost:3000/results?q=analysis
 Get only the analysis of the results
 
 The ```q``` parameter follows the partial response format. View the format [https://github.com/nemtsov/json-mask](here)
 
-*This still doesn't work*
+*Not implemented yet*
