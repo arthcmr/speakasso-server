@@ -40,8 +40,17 @@ By default, it runs in ```http://localhost:3000```. The server is really simplis
 
 This will return the necessary data in swedish. The default language is english, in case you don't specify it.
 
-#####POST http://localhost:3000/insert?entry={ ... }
-Stores a specific result in the DB.
+#####POST http://localhost:3000/insert
+Stores a specific result in the DB. You must send the following data:
+```json
+{
+	email: 'test@example.com',
+	language: 'english',
+	responses: [
+		...
+	]
+}
+```
 
 #####GET http://localhost:3000/results
 Get all the results and analysis
