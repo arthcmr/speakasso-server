@@ -49,14 +49,14 @@ describe('Perception API server', function() {
                 language: "portuguese",
                 responses: [{
                     id: "turtle",
-                    high: true,
+                    hcd: true,
                     color: true,
                     correct: 'l',
                     response: 'l',
                     time: 387
                 }, {
                     id: "bird",
-                    high: true,
+                    hcd: true,
                     color: false,
                     correct: 'l',
                     response: 'r',

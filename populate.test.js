@@ -10,18 +10,18 @@ describe('Perception API server: Populate', function() {
                 language: "portuguese",
                 responses: [{
                     id: "turtle",
-                    high: true,
+                    hcd: true,
                     color: true,
                     correct: 'l',
                     response: 'l',
                     time: 387
                 }, {
                     id: "bird",
-                    high: true,
+                    hcd: true,
                     color: false,
                     correct: 'l',
                     response: 'r',
-                    time: 507
+                    time: 600
                 }]
             })
             .end(function(e, res) {
@@ -39,18 +39,18 @@ describe('Perception API server: Populate', function() {
                 language: "english",
                 responses: [{
                     id: "turtle",
-                    high: true,
+                    hcd: true,
                     color: true,
                     correct: 'l',
                     response: 'l',
                     time: 387
                 }, {
                     id: "bird",
-                    high: true,
-                    color: false,
+                    hcd: false,
+                    color: true,
                     correct: 'r',
                     response: 'r',
-                    time: 507
+                    time: 390
                 }]
             })
             .end(function(e, res) {
