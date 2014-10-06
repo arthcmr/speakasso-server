@@ -26,7 +26,7 @@
             "hcd": true,
             "pair": "limousine"
         }, {
-            "id": "fire engine",
+            "id": "fire_engine",
             "type": "target",
             "hcd": true,
             "pair": "tractor"
@@ -46,10 +46,10 @@
             "hcd": true,
             "pair": "celery"
         }, {
-            "id": "stop sign",
+            "id": "stop_sign",
             "type": "target",
             "hcd": true,
-            "pair": "merge sign"
+            "pair": "merge_sign"
         }, {
             "id": "banana",
             "type": "target",
@@ -90,7 +90,7 @@
             "id": "tractor",
             "type": "foil",
             "hcd": true,
-            "pair": "fire engine"
+            "pair": "fire_engine"
         }, {
             "id": "cauliflower",
             "type": "foil",
@@ -107,10 +107,10 @@
             "hcd": true,
             "pair": "corn"
         }, {
-            "id": "merge sign",
+            "id": "merge_sign",
             "type": "foil",
             "hcd": true,
-            "pair": "stop sign"
+            "pair": "stop_sign"
         }, {
             "id": "cucumber",
             "type": "foil",
