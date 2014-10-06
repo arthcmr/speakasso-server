@@ -26,11 +26,12 @@ module.exports = function(app) {
         //get query to be processed
         var responses = req.body.responses,
             language = req.body.language,
-            email = req.body.email;
+            email = req.body.email,
+            blindness = req.body.blindness;
 
         setHeaders(res, 'POST');
 
-        if (!responses || !email || !language) {
+        if (!responses || !email || !language || !blindness) {
             res.end(JSON.stringify({
                 success: false,
                 msg: "Insufficient information"
@@ -51,6 +52,12 @@ module.exports = function(app) {
                         success: false,
                         msg: "E-mail is already in the database",
                         exists: true,
+                    }));
+                } else if (blindness == "true") {
+                    res.end(JSON.stringify({
+                        success: true,
+                        msg: "Blindness results not taken into account",
+                        exists: false,
                     }));
                 } else {
                     //insert to DB
