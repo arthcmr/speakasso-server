@@ -1,7 +1,7 @@
 var dataHelper = require("./data-helper"),
     mongo = require('mongoskin'),
     colog = require('colog'),
-    origin = 'http://localhost',
+    origin = '*', //allow all - alternatively: 'http://localhost:9000',
     db = mongo.db("mongodb://localhost:27017/perception", {
         native_parser: true
     });
