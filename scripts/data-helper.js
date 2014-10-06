@@ -5,7 +5,7 @@ var colog = require('colog'),
     _ = require('underscore'),
     data = {};
 
-var image_dir = "images/";
+var image_dir = "";
 
 //The data is a global object that will stay in memory
 GLOBAL.data = data;
