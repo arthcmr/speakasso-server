@@ -20,7 +20,7 @@ module.exports = {
     //process content query
     processQuery: function(query, lang, doneCallback) {
         //mask data with partial response query
-        var response = mask(data, query);
+        var response = deepClone(mask(data, query));
         response = buildExperiment(response, lang);
         doneCallback(response);
     },
@@ -160,6 +160,8 @@ function buildExperiment(res, lang) {
     for (var i = 0, size = res.experiment.length; i < size; i++) {
         res.experiment[i].left = res.i18n[lang].words[res.experiment[i].left];
         res.experiment[i].right = res.i18n[lang].words[res.experiment[i].right];
+
+        console.log(res.experiment[i].left, res.experiment[i].right);
     }
     //shuffle
     shuffle(res.experiment);
@@ -305,6 +307,10 @@ function analyseWord(responses) {
 
     return analysis;
 
+}
+
+function deepClone(p_object) {
+    return JSON.parse(JSON.stringify(p_object));
 }
 
 function avgTime(responses) {
