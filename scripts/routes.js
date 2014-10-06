@@ -30,6 +30,7 @@ module.exports = function(app) {
             blindness = req.body.blindness;
 
         setHeaders(res, 'POST');
+        res.setHeader('Access-Control-Allow-Origin', origin);
 
         if (!responses || !email || !language || !blindness) {
             res.end(JSON.stringify({
