@@ -53,11 +53,11 @@ Stores a specific result in the DB. You must send the following data:
 #####GET http://localhost:3000/results
 Get all the results and analysis
 
-*Not implemented yet*
-
 #####GET http://localhost:3000/results?q=analysis
 Get only the analysis of the results
 
 The ```q``` parameter follows the partial response format. View the format [https://github.com/nemtsov/json-mask](here)
 
-*Not implemented yet*
+#####GET http://localhost:3000/results?email=test@test.com
+Get only the results of a specific user
+
