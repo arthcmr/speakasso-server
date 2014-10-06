@@ -4,15 +4,16 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "express": "4.x",
-    "q": "~1.0.1",
-    "underscore": "~1.6.0",
-    "json-mask": "~0.3.0",
-    "nopt": "~3.0.1",
     "body-parser": "~1.9.0",
+    "colog": "^1.0.4",
     "expect.js": "~0.3.1",
-    "superagent": "~0.20.0",
+    "express": "4.x",
+    "json-mask": "~0.3.0",
     "mocha": "~1.21.4",
-    "mongoskin": "~1.4.4"
+    "mongoskin": "~1.4.4",
+    "nopt": "~3.0.1",
+    "q": "~1.0.1",
+    "superagent": "~0.20.0",
+    "underscore": "~1.6.0"
   }
 }
