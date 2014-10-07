@@ -52,18 +52,14 @@ module.exports = function(app) {
                         msg: "E-mail is already in the database",
                         exists: true,
                     }));
-                } else if (blindness == "true") {
-                    res.end(JSON.stringify({
-                        success: true,
-                        msg: "Blindness results not taken into account",
-                        exists: false,
-                    }));
-                } else {
+                } 
+                else {
                     //insert to DB
                     db.collection('entries').insert({
                         email: email,
                         language: language,
                         responses: responses,
+                        blindness: (blindness == "true") ? true : false
                     }, function(e, results) {
                         if (e) {
                             res.end(JSON.stringify({
@@ -156,6 +152,9 @@ module.exports = function(app) {
         var user = (email) ? {
             email: email
         } : {};
+
+        //dont get blind user results
+        user.blindness = false;
 
         //find all responses
         db.collection('entries').find(user).toArray(function(e, results) {
