@@ -1,7 +1,6 @@
 var dataHelper = require("./data-helper"),
     mongo = require('mongoskin'),
     colog = require('colog'),
-    origin = '*', //allow all - alternatively: 'http://localhost:9000',
     db = mongo.db("mongodb://localhost:27017/perception", {
         native_parser: true
     });
@@ -30,7 +29,6 @@ module.exports = function(app) {
             blindness = req.body.blindness;
 
         setHeaders(res, 'POST');
-        res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
 
         if (!responses || !email || !language || !blindness) {
             res.end(JSON.stringify({
@@ -181,11 +179,6 @@ module.exports = function(app) {
 
 function setHeaders(res, allowed, code) {
     code = code || 200;
-
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Methods', allowed);
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
     res.writeHead(code, {
         'Content-Type': 'application/json'
     });
