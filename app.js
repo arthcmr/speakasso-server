@@ -1,6 +1,6 @@
 var colog = require('colog'),
     bodyParser = require('body-parser'),
-    cors = require('./cors');
+    cors = require('scripts/cors');
 
 colog.headerInfo("Starting App...");
 var express = require("express"),
