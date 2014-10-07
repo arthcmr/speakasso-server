@@ -160,8 +160,6 @@ function buildExperiment(res, lang) {
     for (var i = 0, size = res.experiment.length; i < size; i++) {
         res.experiment[i].left = res.i18n[lang].words[res.experiment[i].left];
         res.experiment[i].right = res.i18n[lang].words[res.experiment[i].right];
-
-        console.log(res.experiment[i].left, res.experiment[i].right);
     }
     //shuffle
     shuffle(res.experiment);
