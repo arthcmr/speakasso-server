@@ -59,7 +59,8 @@ module.exports = function(app) {
                         email: email,
                         language: language,
                         responses: responses,
-                        blindness: (blindness == "true") ? true : false
+                        blindness: (blindness == "true") ? true : false,
+                        timedate: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
                     }, function(e, results) {
                         if (e) {
                             res.end(JSON.stringify({
