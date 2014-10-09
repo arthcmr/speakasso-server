@@ -26,7 +26,8 @@ module.exports = function(app) {
         var responses = req.body.responses,
             language = req.body.language,
             email = req.body.email,
-            blindness = req.body.blindness;
+            blindness = req.body.blindness,
+            browser = req.body.browser;
 
         setHeaders(res, 'POST');
 
@@ -60,6 +61,7 @@ module.exports = function(app) {
                         language: language,
                         responses: responses,
                         blindness: (blindness == "true") ? true : false,
+                        browser: browser,
                         timedate: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '')
                     }, function(e, results) {
                         if (e) {
