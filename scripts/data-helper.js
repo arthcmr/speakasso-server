@@ -282,7 +282,8 @@ function analyseLanguage(unflattened_responses) {
         responses[lang] = flattenResponses(res);
         analysis[lang] = {
             general: analyseGeneral(responses[lang]),
-            byHCDColor: analyseHCDColor(responses[lang])
+            byHCDColor: analyseHCDColor(responses[lang]),
+            byWord: analyseWord(responses[lang])
         };
     });
 
