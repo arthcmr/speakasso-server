@@ -27,14 +27,6 @@ module.exports = {
 
     //process results query
     processResults: function(query, results, doneCallback) {
-
-        for (var i = 0, size = results.length; i < size; i++) {
-            results[i].responses = _.filter(results[i].responses,
-                function(response) {
-                    return response.image.indexOf("_f_") === -1;
-                });
-        }
-
         var response = {
             responses: flattenResponses(results),
             analysis: analyse(results)
@@ -217,7 +209,7 @@ function flattenResponses(responses) {
     return _.flatten(responses);
 }
 
-function analyseGeneral(responses) {
+function  analyseGeneral(responses) {
 
     var correct_responses = _.filter(responses, function(res) {
         return res.correct === res.response;
@@ -280,8 +272,8 @@ function analyseHCDColor(responses) {
 }
 
 function analyseLanguage(unflattened_responses) {
-
-    responses = _.groupBy(unflattened_responses, function(res) {
+    
+    responses = _.groupBy(unflattened_responses, function(res){
         return res.language;
     });
 
