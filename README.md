@@ -1,7 +1,7 @@
-perception-server
+SPEAKASSO server
 =================
 
-Simple node server with json data for perception-client
+Simple node server with json data for SPEAKASSO
 
 ###How to get started
 You need to have Node.js installed. If you don't, install it through the official website: http://nodejs.org/
@@ -36,25 +36,23 @@ mocha app.test.js
 By default, it runs in ```http://localhost:3000```. The server is really simplistic and accepts only a few requests:
 
 ####Examples of supported requests:
-#####GET http://localhost:3000/getAll?lang=swedish
+#####GET http://localhost:3000/getPainters
 
-This will return the necessary data in swedish. The default language is english, in case you don't specify it.
+This will return a list with all painters and their attributes
 
 #####POST http://localhost:3000/insert
 Stores a specific result in the DB. You must send the following data:
 ```json
 {
 	"email": "test@example.com",
-	"language": "english",
-	"responses": []
+	"name": "John",
+	"painter": "leonardo",
+	"settings": {}
 }
 ```
 
 #####GET http://localhost:3000/results
-Get all the results and analysis
-
-#####GET http://localhost:3000/results?q=analysis
-Get only the analysis of the results
+Get all the results from all users
 
 The ```q``` parameter follows the partial response format. View the format [https://github.com/nemtsov/json-mask](here)
 

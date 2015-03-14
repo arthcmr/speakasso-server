@@ -15,5 +15,8 @@
     "q": "~1.0.1",
     "superagent": "~0.20.0",
     "underscore": "~1.6.0"
+  },
+  "devDependencies": {
+    "mongo-express": "^0.20.0"
   }
 }
